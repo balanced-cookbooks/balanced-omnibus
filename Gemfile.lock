@@ -1,11 +1,28 @@
 GIT
-  remote: git://github.com/RoboticCheese/kitchen-rackspace.git
-  revision: 3d04c2304fc514a02178f49df54595862c24b517
+  remote: git://github.com/berkshelf/berkshelf.git
+  revision: f3e8a718b5867272b2a23cad4d119bec624238d0
+  ref: f3e8a718b5867272b2a23cad4d119bec624238d0
   specs:
-    kitchen-rackspace (0.3.1.dev)
-      fog (~> 1.18)
-      test-kitchen (~> 1.1)
-      unf
+    berkshelf (3.0.0.beta4)
+      addressable (~> 2.3.4)
+      berkshelf-api-client (~> 1.1)
+      buff-config (~> 0.2)
+      buff-extensions (~> 0.4)
+      buff-shell_out (~> 0.1)
+      faraday (~> 0.8.5)
+      minitar (~> 0.5.4)
+      retryable (~> 1.3.3)
+      ridley (~> 2.3)
+      solve (>= 0.8.0)
+      thor (~> 0.18.0)
+
+GIT
+  remote: git://github.com/test-kitchen/kitchen-ec2.git
+  revision: 3d66750f8292044bb872b94e8c198f7951525556
+  specs:
+    kitchen-ec2 (0.7.1.dev)
+      fog
+      test-kitchen (~> 1.0)
 
 GIT
   remote: git://github.com/test-kitchen/test-kitchen.git
@@ -21,26 +38,9 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (3.2.16)
-      i18n (~> 0.6, >= 0.6.4)
-      multi_json (~> 1.0)
     addressable (2.3.5)
-    akami (1.2.0)
-      gyoku (>= 0.4.0)
-      nokogiri (>= 1.4.0)
-    berkshelf (2.0.12)
-      activesupport (~> 3.2.0)
-      addressable (~> 2.3.4)
-      buff-shell_out (~> 0.1)
-      chozo (>= 0.6.1)
+    berkshelf-api-client (1.1.1)
       faraday (~> 0.8.5)
-      hashie (>= 2.0.2)
-      minitar (~> 0.5.4)
-      rbzip2 (~> 0.2.0)
-      retryable (~> 1.3.3)
-      ridley (~> 1.5.0)
-      solve (>= 0.5.0)
-      thor (~> 0.18.0)
     buff-config (0.4.0)
       buff-extensions (~> 0.3)
       varia_model (~> 0.1)
@@ -50,20 +50,15 @@ GEM
     buff-shell_out (0.1.1)
       buff-ruby_engine (~> 0.1.0)
     builder (3.2.2)
-    celluloid (0.14.1)
-      timers (>= 1.0.0)
-    celluloid-io (0.14.1)
-      celluloid (>= 0.14.1)
-      nio4r (>= 0.4.5)
-    chozo (0.6.1)
-      activesupport (>= 3.2.0)
-      hashie (>= 2.0.2)
-      multi_json (>= 1.3.0)
+    celluloid (0.15.2)
+      timers (~> 1.1.0)
+    celluloid-io (0.15.0)
+      celluloid (>= 0.15.0)
+      nio4r (>= 0.5.0)
     erubis (2.7.0)
     excon (0.31.0)
     faraday (0.8.9)
       multipart-post (~> 1.2.0)
-    ffi (1.9.3)
     fog (1.19.0)
       builder
       excon (~> 0.31.0)
@@ -84,21 +79,10 @@ GEM
     formatador (0.2.4)
     gherkin (2.11.8)
       multi_json (~> 1.3)
-    gssapi (1.0.3)
-      ffi (>= 1.0.1)
-    gyoku (1.1.1)
-      builder (>= 2.1.2)
     hashie (2.0.5)
-    hitimes (1.2.1)
-    httpclient (2.3.4.1)
-    httpi (0.9.7)
-      rack
-    i18n (0.6.9)
     json (1.8.1)
-    little-plugger (1.1.3)
-    logging (1.8.1)
-      little-plugger (>= 1.1.3)
-      multi_json (>= 1.3.6)
+    kitchen-vagrant (0.14.0)
+      test-kitchen (~> 1.0)
     mime-types (2.0)
     minitar (0.5.4)
     mixlib-authentication (1.3.0)
@@ -113,74 +97,47 @@ GEM
     net-ssh (2.7.0)
     nio4r (0.5.0)
     nokogiri (1.5.11)
-    nori (1.1.5)
     polyglot (0.3.3)
-    rack (1.5.2)
     rake (10.1.1)
-    rbzip2 (0.2.0)
     retryable (1.3.4)
-    ridley (1.5.3)
+    ridley (2.4.0)
       addressable
       buff-config (~> 0.2)
       buff-extensions (~> 0.3)
       buff-ignore (~> 1.1)
       buff-shell_out (~> 0.1)
-      celluloid (~> 0.14.0)
-      celluloid-io (~> 0.14.0)
+      celluloid (~> 0.15)
+      celluloid-io (~> 0.15)
       erubis
       faraday (>= 0.8.4)
       hashie (>= 2.0.2)
       json (>= 1.7.7)
       mixlib-authentication (>= 1.3.0)
       net-http-persistent (>= 2.8)
-      net-ssh
-      nio4r (>= 0.5.0)
       retryable
       solve (>= 0.4.4)
       varia_model (~> 0.1)
-      winrm (~> 1.1.0)
     ruby-hmac (0.4.0)
-    rubyntlm (0.1.1)
     safe_yaml (1.0.1)
-    savon (0.9.5)
-      akami (~> 1.0)
-      builder (>= 2.1.2)
-      gyoku (>= 0.4.0)
-      httpi (~> 0.9)
-      nokogiri (>= 1.4.0)
-      nori (~> 1.0)
-      wasabi (~> 1.0)
     solve (0.8.2)
     thor (0.18.1)
-    timers (2.0.0)
-      hitimes
+    timers (1.1.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    unf (0.1.3)
-      unf_ext
-    unf_ext (0.0.6)
-    uuidtools (2.1.4)
-    varia_model (0.2.0)
+    vagrant-wrapper (1.2.1.1)
+    varia_model (0.3.0)
       buff-extensions (~> 0.2)
       hashie (>= 2.0.2)
-    wasabi (1.0.0)
-      nokogiri (>= 1.4.0)
-    winrm (1.1.3)
-      gssapi (~> 1.0.0)
-      httpclient (~> 2.2, >= 2.2.0.2)
-      logging (~> 1.6, >= 1.6.1)
-      nokogiri (~> 1.5)
-      rubyntlm (~> 0.1.1)
-      savon (= 0.9.5)
-      uuidtools (~> 2.1.2)
     yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  berkshelf
+  berkshelf!
   foodcritic (>= 3.0.3)
-  kitchen-rackspace!
+  kitchen-ec2!
+  kitchen-vagrant
   test-kitchen!
+  vagrant-wrapper

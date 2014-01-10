@@ -1,7 +1,7 @@
 #
 # Author:: Noah Kantrowitz <noah@coderanger.net>
 #
-# Copyright 2013-2014, Balanced, Inc.
+# Copyright 2014, Balanced, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,6 +16,4 @@
 # limitations under the License.
 #
 
-source 'http://localhost:26200/'
-
-metadata
+default['balanced-omnibus']['project'] = 'balanced'

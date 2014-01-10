@@ -1,19 +1,23 @@
 {
-  "sources": {
+  "dependencies": {
     "balanced-omnibus": {
+      "locked_version": "1.0.0",
       "path": "."
     },
     "apt": {
-      "locked_version": "2.3.4"
+      "locked_version": "1.9.2"
     },
     "balanced-citadel": {
       "locked_version": "1.0.0"
     },
+    "git": {
+      "locked_version": "2.3.0"
+    },
+    "omnibus": {
+      "locked_version": "1.2.2"
+    },
     "citadel": {
       "locked_version": "1.0.0"
-    },
-    "git": {
-      "locked_version": "2.9.0"
     },
     "dmg": {
       "locked_version": "2.1.2"
@@ -21,26 +25,14 @@
     "build-essential": {
       "locked_version": "1.4.2"
     },
+    "yum": {
+      "locked_version": "2.2.4"
+    },
     "windows": {
-      "locked_version": "1.12.4"
-    },
-    "chef_handler": {
-      "locked_version": "1.1.4"
-    },
-    "powershell": {
-      "locked_version": "1.1.2"
+      "locked_version": "1.8.10"
     },
     "runit": {
-      "locked_version": "1.5.8"
-    },
-    "yum": {
-      "locked_version": "3.0.4"
-    },
-    "yum-epel": {
-      "locked_version": "0.2.0"
-    },
-    "omnibus": {
-      "locked_version": "1.2.2"
+      "locked_version": "1.4.6"
     },
     "homebrew": {
       "locked_version": "1.3.2"
@@ -54,14 +46,17 @@
     "rbenv": {
       "locked_version": "1.6.5"
     },
-    "ohai": {
-      "locked_version": "1.1.12"
-    },
     "wix": {
       "locked_version": "1.1.0"
     },
     "7-zip": {
       "locked_version": "1.0.2"
+    },
+    "chef_handler": {
+      "locked_version": "1.1.4"
+    },
+    "ohai": {
+      "locked_version": "1.1.12"
     }
   }
 }

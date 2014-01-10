@@ -1,7 +1,7 @@
 #
 # Author:: Noah Kantrowitz <noah@coderanger.net>
 #
-# Copyright 2013-2014, Balanced, Inc.
+# Copyright 2014, Balanced, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,6 +16,12 @@
 # limitations under the License.
 #
 
-source 'http://localhost:26200/'
+# Confirm that we can install internal packages
+describe command('pip install sterling') do
+  it { should return_exit_status 0 }
+end
 
-metadata
+# Confirm that we can clone private repos
+describe command('git clone git@github.com:PoundPay/sterling.git') do
+  it { should return_exit_status 0 }
+end
