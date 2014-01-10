@@ -48,6 +48,14 @@ Vagrant.configure('2') do |config|
           recipe[balanced-omnibus]
         }
       end
+
+      c.vm.provision :shell, inline: <<-PROVISION.gsub(/^ {8}/, '')
+        eval "$(rbenv init -)"
+        cd #{guest_project_path}
+        bundle install --binstubs --path vendor/bundle
+        rm -f pkg/#{project_name}*
+        bin/omnibus build project #{project_name}
+      PROVISION
     end
   end
 end

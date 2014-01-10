@@ -19,32 +19,19 @@
 include_recipe 'apt' if platform_family?('debian', 'ubuntu')
 
 node.set['omnibus']['install_dir'] = "/opt/#{node['balanced-omnibus']['project']}"
+node.set['omnibus']['build_user'] = 'root'
 
 include_recipe 'git'
 include_recipe 'omnibus'
 
-c = shell_out!('mount')
-unless c.stdout.include?("on #{node['balanced-omnibus']['dir']} type vboxsf")
-  directory node['balanced-omnibus']['dir'] do
-    owner node['omnibus']['build_user']
-    mode '755'
-  end
-
-  git node['balanced-omnibus']['dir'] do
-    repository 'https://github.com/balanced/omnibus-balanced.git'
-    revision 'master'
-    user node['omnibus']['build_user']
-  end
-end
-
 # Create pip config
-directory "#{node['balanced-omnibus']['dir']}/.pip" do
+directory "/root/.pip" do
   owner 'root'
   group 'root'
   mode '600'
 end
 
-template "#{node['balanced-omnibus']['dir']}/.pip/pip.conf" do
+template "/root/.pip/pip.conf" do
   owner 'root'
   group 'root'
   mode '600'
@@ -52,6 +39,7 @@ template "#{node['balanced-omnibus']['dir']}/.pip/pip.conf" do
   variables password: citadel['omnibus/devpi_password'].strip
 end
 
+# Create SSH config
 directory '/root/.ssh' do
   owner 'root'
   group 'root'
@@ -70,18 +58,4 @@ template '/root/.ssh/config' do
   group 'root'
   mode '600'
   source 'ssh_config.erb'
-end
-
-{
-  'bundle install' => 'bundle install --binstubs --path vendor/bundle',
-  'rm pkg/*' => "rm -f #{node['balanced-omnibus']['dir']}/pkg/#{node['balanced-omnibus']['project']}*",
-  'omnibus build' => "bin/omnibus build project #{node['balanced-omnibus']['project']}",
-}.each do |name, cmd|
-  rbenv_execute name do
-    command cmd
-    ruby_version node['omnibus']['ruby_version']
-    cwd node['balanced-omnibus']['dir']
-    user node['omnibus']['build_user']
-    environment 'HOME' => node['balanced-omnibus']['dir']
-  end
 end
