@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+- 2.0.0
+env:
+  global:
+  - KITCHEN_LOCAL_YAML=.kitchen.travis.yml
+  - secure: Utb9E9it6R5VyKpLWihU4kUMNXbpPD8TZ0KfuMGBGIGeXjoHEKW9uSWXrEieHQru0Q4Oe9NcGM6haOxmfYtzng2IjAIpTJgkFJqZJqgdfqYGhL/39lRMKgja5Cd2dnUNwXVh0oa+dP0xGh+7o6lCJ2kfsU8ZII7GdgYNTEWf98s=
+bundler_args: --deployment --binstubs
+script:
+- ./bin/s3sync get balanced.citadel:travis/us-east-1.pem travis.pem
+- ./bin/foodcritic -f any .
+- ./bin/kitchen test -d always -p
