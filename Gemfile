@@ -21,6 +21,7 @@ source 'https://rubygems.org'
 gem 'test-kitchen', github: 'test-kitchen/test-kitchen'
 gem 'berkshelf', github: 'berkshelf/berkshelf', ref: 'f3e8a718b5867272b2a23cad4d119bec624238d0' # https://github.com/berkshelf/berkshelf/issues/978
 gem 'kitchen-ec2', github: 'test-kitchen/kitchen-ec2'
+gem 'unf'
 gem 'kitchen-vagrant'
 gem 'vagrant-wrapper'
 gem 'foodcritic', '>= 3.0.3'
