@@ -16,12 +16,19 @@
 # limitations under the License.
 #
 
+require 'serverspec'
+include Serverspec::Helper::Exec
+include Serverspec::Helper::DetectOS
+
+# https://github.com/test-kitchen/test-kitchen/issues/321
+ENV['HOME'] = Etc.getpwuid(Process.uid).dir
+
 # Confirm that we can install internal packages
-describe command('pip install sterling') do
+describe command('pip install --no-deps sterling') do
   it { should return_exit_status 0 }
 end
 
 # Confirm that we can clone private repos
-describe command('git clone git@github.com:PoundPay/sterling.git') do
+describe command('rm -rf precog && git clone --depth 1 git@github.com:balanced/precog.git') do
   it { should return_exit_status 0 }
 end

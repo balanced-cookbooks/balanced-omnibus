@@ -9,6 +9,7 @@ platforms:
 suites:
 - name: default
   run_list:
+  - recipe[python]
   - recipe[balanced-omnibus]
   attributes:
     citadel:

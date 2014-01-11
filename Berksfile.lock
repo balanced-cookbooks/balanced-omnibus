@@ -4,6 +4,9 @@
       "locked_version": "1.0.0",
       "path": "."
     },
+    "python": {
+      "locked_version": "1.4.4"
+    },
     "apt": {
       "locked_version": "1.9.2"
     },

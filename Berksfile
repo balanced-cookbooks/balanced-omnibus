@@ -19,3 +19,7 @@
 source 'http://localhost:26200/'
 
 metadata
+
+group :test do
+  cookbook 'python'
+end
