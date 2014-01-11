@@ -9,4 +9,4 @@ bundler_args: --deployment --binstubs
 script:
 - ./bin/s3sync get balanced.citadel:travis/us-east-1.pem travis.pem
 - ./bin/foodcritic -f any .
-- ./bin/kitchen test -d always -p
+- ./bin/kitchen test -d always -p --log-level debug
