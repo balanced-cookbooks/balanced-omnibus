@@ -17,7 +17,7 @@
 #
 
 name 'balanced-omnibus'
-version '1.0.0'
+version '1.0.1'
 
 maintainer 'Noah Kantrowitz'
 maintainer_email 'noah@coderanger.net'
@@ -27,5 +27,6 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 
 depends 'apt'
 depends 'balanced-citadel'
+depends 'build-essential'
 depends 'git'
-depends 'omnibus'
+depends 'poise-ruby'

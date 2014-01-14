@@ -1,23 +1,34 @@
 {
   "dependencies": {
     "balanced-omnibus": {
-      "locked_version": "1.0.0",
+      "locked_version": "1.0.1",
       "path": "."
+    },
+    "poise-ruby": {
+      "locked_version": "1.0.0",
+      "git": "git://github.com/poise/poise-ruby.git",
+      "ref": "9007ad9ce0c566780ac3b989c1c6355bb2161bbc"
     },
     "python": {
       "locked_version": "1.4.4"
     },
     "apt": {
-      "locked_version": "1.9.2"
+      "locked_version": "2.3.4"
     },
     "balanced-citadel": {
       "locked_version": "1.0.0"
     },
-    "git": {
-      "locked_version": "2.3.0"
+    "build-essential": {
+      "locked_version": "1.4.2"
     },
-    "omnibus": {
-      "locked_version": "1.2.2"
+    "git": {
+      "locked_version": "2.9.0"
+    },
+    "poise": {
+      "locked_version": "1.0.4"
+    },
+    "yum": {
+      "locked_version": "3.0.4"
     },
     "citadel": {
       "locked_version": "1.0.0"
@@ -25,41 +36,17 @@
     "dmg": {
       "locked_version": "2.1.2"
     },
-    "build-essential": {
-      "locked_version": "1.4.2"
-    },
-    "yum": {
-      "locked_version": "2.2.4"
-    },
     "windows": {
-      "locked_version": "1.8.10"
+      "locked_version": "1.12.6"
     },
     "runit": {
-      "locked_version": "1.4.6"
+      "locked_version": "1.5.8"
     },
-    "homebrew": {
-      "locked_version": "1.3.2"
-    },
-    "pkgin": {
-      "locked_version": "0.4.0"
-    },
-    "pkgutil": {
-      "locked_version": "0.0.3"
-    },
-    "rbenv": {
-      "locked_version": "1.6.5"
-    },
-    "wix": {
-      "locked_version": "1.1.0"
-    },
-    "7-zip": {
-      "locked_version": "1.0.2"
+    "yum-epel": {
+      "locked_version": "0.2.0"
     },
     "chef_handler": {
       "locked_version": "1.1.4"
-    },
-    "ohai": {
-      "locked_version": "1.1.12"
     }
   }
 }

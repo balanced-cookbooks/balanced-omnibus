@@ -23,6 +23,9 @@ include Serverspec::Helper::DetectOS
 # https://github.com/test-kitchen/test-kitchen/issues/321
 ENV['HOME'] = Etc.getpwuid(Process.uid).dir
 
+# Set our path
+ENV['PATH'] = "/opt/ruby-210/bin:#{ENV['PATH']}"
+
 # Confirm that we can install internal packages
 describe command('pip install --no-deps sterling') do
   it { should return_exit_status 0 }
@@ -30,5 +33,10 @@ end
 
 # Confirm that we can clone private repos
 describe command('rm -rf precog && git clone --depth 1 git@github.com:balanced/precog.git') do
+  it { should return_exit_status 0 }
+end
+
+# Confirm bundler is installed
+describe command('bundle --version') do
   it { should return_exit_status 0 }
 end
