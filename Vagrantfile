@@ -4,6 +4,7 @@
 host_project_path = File.expand_path('../../omnibus-balanced', __FILE__)
 guest_project_path = "/srv/omnibus-balanced"
 projects = Dir["#{host_project_path}/config/projects/*.rb"].map{|path| File.basename(path, '.rb') }
+projects = ['balanced']
 
 Vagrant.configure('2') do |config|
 
@@ -14,8 +15,8 @@ Vagrant.configure('2') do |config|
     # Give enough horsepower to build without taking all day.
     vb.customize [
       'modifyvm', :id,
-      '--memory', '1536',
-      '--cpus', '2'
+      '--memory', '4096',
+      '--cpus', '4'
     ]
   end
 
@@ -26,6 +27,11 @@ Vagrant.configure('2') do |config|
   config.berkshelf.enabled = true
 
   config.vm.synced_folder host_project_path, guest_project_path
+  (ENV['VAGRANT_SYNC_FOLDERS'] || '').split(':').each do |host_folder|
+    target = "#{guest_project_path}/#{File.basename(host_folder)}"
+    puts "Syncing #{host_folder} to #{target}"
+    config.vm.synced_folder host_folder, target
+  end
 
   projects.each do |project_name|
     config.vm.define project_name do |c|

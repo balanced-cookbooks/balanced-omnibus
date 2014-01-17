@@ -16,7 +16,8 @@
 # limitations under the License.
 #
 
-source 'http://localhost:26200/'
+site :opscode
+chef_api :config
 
 metadata
 

@@ -1,3 +1,7 @@
 .vagrant/
 .kitchen/
 travis.pem
+
+# intellij
+.idea
+*.iml
