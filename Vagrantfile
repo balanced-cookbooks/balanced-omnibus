@@ -4,7 +4,7 @@
 host_project_path = File.expand_path('../../omnibus-balanced', __FILE__)
 guest_project_path = "/srv/omnibus-balanced"
 projects = Dir["#{host_project_path}/config/projects/*.rb"].map{|path| File.basename(path, '.rb') }
-projects = ['balanced']
+
 
 Vagrant.configure('2') do |config|
 
