@@ -36,6 +36,14 @@ template '/root/.pip/pip.conf' do
   variables password: citadel['omnibus/devpi_password'].strip
 end
 
+template '/root/.pydistutils.cfg' do
+  owner 'root'
+  group 'root'
+  mode '600'
+  source 'pydistutils.cfg.erb'
+  variables password: citadel['omnibus/devpi_password'].strip
+end
+
 # Create SSH config
 directory '/root/.ssh' do
   owner 'root'

@@ -1,5 +1,5 @@
 {
-  "dependencies": {
+  "sources": {
     "balanced-omnibus": {
       "locked_version": "1.0.3",
       "path": "."
@@ -32,6 +32,9 @@
     },
     "citadel": {
       "locked_version": "1.0.0"
+    },
+    "git": {
+      "locked_version": "2.9.0"
     },
     "dmg": {
       "locked_version": "2.1.2"
