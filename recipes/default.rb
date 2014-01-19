@@ -16,13 +16,10 @@
 # limitations under the License.
 #
 
-include_recipe 'apt' if platform_family?('debian', 'ubuntu')
-
-node.set['omnibus']['install_dir'] = "/opt/#{node['balanced-omnibus']['project']}"
-node.set['omnibus']['build_user'] = 'root'
-
+include_recipe 'apt'
+include_recipe 'build-essential'
 include_recipe 'git'
-include_recipe 'omnibus'
+include_recipe 'poise-ruby::ruby-210'
 
 # Create pip config
 directory '/root/.pip' do
@@ -66,4 +63,26 @@ template '/root/.ssh/config' do
   group 'root'
   mode '600'
   source 'ssh_config.erb'
+end
+
+# Basic packages
+%w{
+  dpkg-dev
+  libxml2
+  libxml2-dev
+  libxslt1.1
+  libxslt1-dev
+  ncurses-dev
+}.each {|pkg| package pkg }
+
+# Install bundler
+gem_package 'bundler' do
+  gem_binary '/opt/ruby-210/bin/gem'
+end
+
+# Omnibus cache directory
+directory '/var/cache/omnibus' do
+  owner 'root'
+  group 'root'
+  mode '755'
 end

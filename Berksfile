@@ -21,6 +21,8 @@ chef_api :config
 
 metadata
 
+cookbook 'poise-ruby', github: 'poise/poise-ruby'
+
 group :test do
   cookbook 'python'
 end
