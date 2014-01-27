@@ -50,7 +50,7 @@ Vagrant.configure('2') do |config|
       end
 
       c.vm.provision :shell, inline: <<-PROVISION.gsub(/^ {8}/, '')
-        eval "$(rbenv init -)"
+        export PATH="/opt/ruby-210/bin:$PATH"
         cd #{guest_project_path}
         bundle install --binstubs --path vendor/bundle
         rm -f pkg/#{project_name}*
