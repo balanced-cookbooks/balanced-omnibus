@@ -16,11 +16,9 @@
 # limitations under the License.
 #
 
-source 'http://localhost:26200/'
+source 'https://berks.vandelay.io/'
 
 metadata
-
-cookbook 'poise-ruby', github: 'poise/poise-ruby'
 
 group :test do
   cookbook 'python'
