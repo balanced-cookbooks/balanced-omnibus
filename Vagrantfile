@@ -57,6 +57,7 @@ Vagrant.configure('2') do |config|
         cd #{guest_project_path}
         bundle install --binstubs --path vendor/bundle
         rm -f pkg/#{project_name}*
+        rm -f /var/cache/omnibus/pkg/#{project_name}*
         bin/omnibus build project #{project_name}
       PROVISION
     end
