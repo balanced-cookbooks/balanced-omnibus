@@ -5,6 +5,9 @@ host_project_path = File.expand_path('../../omnibus-balanced', __FILE__)
 guest_project_path = "/srv/omnibus-balanced"
 projects = Dir["#{host_project_path}/config/projects/*.rb"].map{|path| File.basename(path, '.rb') }
 
+Vagrant.require_plugin('vagrant-omnibus')
+Vagrant.require_plugin('vagrant-berkshelf')
+
 Vagrant.configure('2') do |config|
 
   config.vm.box = 'ubuntu-12.04'
