@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "balanced-omnibus": {
-      "locked_version": "1.0.4",
+      "locked_version": "1.0.5",
       "path": "."
     },
     "python": {
