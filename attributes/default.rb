@@ -17,3 +17,6 @@
 #
 
 default['balanced-omnibus']['project'] = 'balanced'
+
+# Force binary install
+default['nodejs']['install_method'] = 'binary'

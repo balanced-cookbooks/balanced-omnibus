@@ -21,7 +21,7 @@ include_recipe 'build-essential'
 include_recipe 'git'
 include_recipe 'poise-ruby::ruby-210'
 include_recipe 'python'
-include_recipe 'nodejs::install_from_binary'
+include_recipe 'nodejs'
 include_recipe 'nodejs::npm'
 
 # Create pip config
