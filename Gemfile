@@ -29,3 +29,4 @@ gem 's3sync'
 gem 'vagrant', github: 'mitchellh/vagrant', ref: 'v1.4.3'
 gem 'vagrant-berkshelf', github: 'berkshelf/vagrant-berkshelf'
 gem 'vagrant-omnibus'
+gem 'ridley', github: 'coderanger/ridley' # Pending https://github.com/RiotGames/ridley/pull/255
