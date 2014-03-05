@@ -30,6 +30,12 @@ Vagrant.configure('2') do |config|
 
   config.vm.synced_folder host_project_path, guest_project_path
 
+  (ENV['VAGRANT_SYNC_FOLDERS'] || '').split(':').each do |host_folder|
+    target = "#{guest_project_path}/#{File.basename(host_folder)}"
+    puts "Syncing #{host_folder} to #{target}"
+    config.vm.synced_folder host_folder, target
+  end
+
   projects.each do |project_name|
     config.vm.define project_name do |c|
       c.vm.hostname = "#{project_name}-omnibus-build-lab"
