@@ -68,7 +68,6 @@ end
   libxslt1.1
   libxslt1-dev
   ncurses-dev
-  gfortran
 }.each {|pkg| package pkg }
 
 # Install bundler
