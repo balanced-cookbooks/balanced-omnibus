@@ -75,8 +75,8 @@ gem_package 'bundler' do
   gem_binary '/opt/ruby-210/bin/gem'
 end
 
-# Install bower
-npm_package 'bower'
+# Install NPM packages
+%w{bower less}.each {|pkg| npm_package pkg}
 
 # Omnibus cache directory
 directory '/var/cache/omnibus' do
