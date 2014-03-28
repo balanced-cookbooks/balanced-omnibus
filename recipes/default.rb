@@ -24,11 +24,13 @@ include_recipe 'python'
 include_recipe 'nodejs'
 include_recipe 'nodejs::npm'
 
-# Create pip config
-directory '/root/.pip' do
-  owner 'root'
-  group 'root'
-  mode '600'
+# Create pip and aws config
+%w(.pip .aws).each do |directory_name|
+  directory "/root/#{directory_name}" do
+    owner 'root'
+    group 'root'
+    mode '600'
+  end
 end
 
 template '/root/.pip/pip.conf' do
@@ -38,6 +40,20 @@ template '/root/.pip/pip.conf' do
   source 'pip.conf.erb'
   variables password: citadel['omnibus/devpi_password'].strip
 end
+
+template '/root/.aws/config' do
+  source 'aws_config.erb'
+  owner 'root'
+  group 'root'
+  mode  '644'
+  variables(
+      access_key_id: citadel['s3fs/aws_access_key_id'],
+      secret_access_key: citadel['s3fs/aws_secret_access_key'],
+      region: 'us-west-1'
+  )
+end
+
+python_pip 'awscli'
 
 # Create SSH config
 directory '/root/.ssh' do
