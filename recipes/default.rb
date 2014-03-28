@@ -45,11 +45,11 @@ template '/root/.aws/config' do
   source 'aws_config.erb'
   owner 'root'
   group 'root'
-  mode  '644'
+  mode  '600'
   variables(
       access_key_id: citadel.access_key_id,
       secret_access_key: citadel.secret_access_key,
-      security_token: citadel.token ? citadel.token : '',
+      security_token: citadel.token,
       region: 'us-west-1'
   )
 end
