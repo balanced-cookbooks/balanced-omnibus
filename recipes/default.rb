@@ -47,8 +47,9 @@ template '/root/.aws/config' do
   group 'root'
   mode  '644'
   variables(
-      access_key_id: citadel['s3fs/aws_access_key_id'],
-      secret_access_key: citadel['s3fs/aws_secret_access_key'],
+      access_key_id: citadel.access_key_id.chomp,
+      secret_access_key: citadel.secret_access_key.chomp,
+      security_token: citadel.token ? citadel.token.chomp : '',
       region: 'us-west-1'
   )
 end
