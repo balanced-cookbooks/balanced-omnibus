@@ -20,3 +20,7 @@ default['balanced-omnibus']['project'] = 'balanced'
 
 # Force binary install
 default['nodejs']['install_method'] = 'binary'
+
+default['nodejs']['version'] = '0.10.26'
+default['nodejs']['checksum_linux_x64'] = '305bf2983c65edea6dd2c9f3669b956251af03523d31cf0a0471504fd5920aac'
+default['nodejs']['npm'] = '1.4.4'
