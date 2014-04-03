@@ -17,7 +17,7 @@
 #
 
 name 'balanced-omnibus'
-version '1.0.12'
+version '1.0.13'
 
 maintainer 'Noah Kantrowitz'
 maintainer_email 'noah@coderanger.net'
